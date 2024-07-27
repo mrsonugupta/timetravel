@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Time Management Tool</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gray-100 font-sans leading-normal tracking-normal">
+    <header class="bg-blue-600 text-white py-6 shadow-md relative">
+        <div class="container mx-auto text-center flex items-center justify-between">
+            <h1 class="text-3xl md:text-4xl font-bold">Time Management Tool</h1>
+            <button id="alarmIcon" class="text-2xl hover:text-yellow-300 transition">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m-6-7v1a3 3 0 00-3 3v4a3 3 0 003 3h9a3 3 0 003-3v-4a3 3 0 00-3-3V8m0-6a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+            </button>
+        </div>
+        <div id="alarmFormContainer" class="absolute top-16 right-6 bg-white rounded-lg shadow-md p-6 hidden">
+            <h2 class="text-xl font-semibold mb-4">Set Alarm</h2>
+            <form id="alarmForm" class="flex flex-col gap-4">
+                <input type="datetime-local" id="alarmTime" class="p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                <button type="submit" class="p-3 bg-red-600 text-white rounded-lg shadow-md hover:bg-red-700 transition">Set Alarm</button>
+            </form>
+        </div>
+    </header>
+    <main class="container mx-auto p-6">
+        <section id="task-form" class="bg-white rounded-lg shadow-md p-6 mb-6">
+            <h2 class="text-xl font-semibold mb-4">Add New Task</h2>
+            <form id="taskForm" class="flex flex-col gap-4">
+                <input type="text" id="taskInput" placeholder="Enter task" class="p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                <input type="datetime-local" id="dueDate" class="p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                <select id="priority" class="p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                    <option value="" disabled selected>Priority</option>
+                    <option value="low">Low</option>
+                    <option value="medium">Medium</option>
+                    <option value="high">High</option>
+                </select>
+                <button type="submit" class="p-3 bg-blue-600 text-white rounded-lg shadow-md hover:bg-blue-700 transition">Add Task</button>
+            </form>
+        </section>
+        <section id="task-list" class="bg-white rounded-lg shadow-md p-6 mb-6">
+            <h2 class="text-xl font-semibold mb-4">Task List</h2>
+            <ul id="tasks" class="space-y-4"></ul>
+        </section>
+        <section id="task-timers" class="bg-white rounded-lg shadow-md p-6 mb-6">
+            <h2 class="text-xl font-semibold mb-4">Active Timers</h2>
+            <ul id="timers" class="space-y-4"></ul>
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
