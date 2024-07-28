@@ -47,7 +47,7 @@ document.getElementById('studentForm').addEventListener('submit', function(e) {
         const totalQuestions = questions.length;
         const percentage = (score / totalQuestions) * 100;
 
-        const resultMessage = `You scored ${score} out of ${totalQuestions} (${percentage}%)`;
+        const resultMessage = `You scored ${score} out of ${totalQuestions} (${percentage.toFixed(2)}%)`;
         document.getElementById('resultMessage').textContent = resultMessage;
 
         document.getElementById('testQuestionsSection').style.display = 'none';
