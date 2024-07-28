@@ -4,50 +4,102 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Upload Questions</title>
-    <link rel="stylesheet" href="upload.css">
+    <link rel="stylesheet" href="dashboard.css">
 </head>
 <body>
     <header>
         <nav>
-            <h1>Upload Questions</h1>
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="test.html">Take Test</a></li>
+                <li><a href="result.html">View Results</a></li>
                 <li><a href="upload.html">Upload Questions</a></li>
             </ul>
         </nav>
     </header>
     <main>
-        <div class="container">
-            <h2>Upload Questions</h2>
-            <form id="upload-form">
-                <div class="form-group">
-                    <label for="question">Question:</label>
-                    <textarea id="question" name="question" rows="4" required></textarea>
-                </div>
-                <div class="form-group">
-                    <label>Options:</label>
-                    <input type="text" name="option1" placeholder="Option 1" required>
-                    <input type="text" name="option2" placeholder="Option 2" required>
-                    <input type="text" name="option3" placeholder="Option 3" required>
-                    <input type="text" name="option4" placeholder="Option 4" required>
-                </div>
-                <div class="form-group">
-                    <label for="answer">Correct Answer:</label>
-                    <select id="answer" name="answer" required>
-                        <option value="option1">Option 1</option>
-                        <option value="option2">Option 2</option>
-                        <option value="option3">Option 3</option>
-                        <option value="option4">Option 4</option>
-                    </select>
-                </div>
-                <button type="submit" class="btn-submit">Upload</button>
+        <div id="loginSection">
+            <h1>Enter Password to Access Dashboard</h1>
+            <form id="loginForm">
+                <label for="password">Password:</label>
+                <input type="password" id="password" required>
+                <button type="submit">Submit</button>
+                <p id="errorMessage" style="color: red;"></p>
             </form>
+        </div>
+        <div id="dashboardSection" style="display: none;">
+            <h1>Upload Questions</h1>
+            <form id="uploadForm">
+                <label for="question">Question:</label>
+                <textarea id="question" required></textarea>
+                <label for="option1">Option 1:</label>
+                <input type="text" id="option1" required>
+                <label for="option2">Option 2:</label>
+                <input type="text" id="option2" required>
+                <label for="option3">Option 3:</label>
+                <input type="text" id="option3" required>
+                <label for="option4">Option 4:</label>
+                <input type="text" id="option4" required>
+                <label for="answer">Correct Answer:</label>
+                <select id="answer" required>
+                    <option value="option1">Option 1</option>
+                    <option value="option2">Option 2</option>
+                    <option value="option3">Option 3</option>
+                    <option value="option4">Option 4</option>
+                </select>
+                <button type="submit">Upload Question</button>
+            </form>
+            <div id="questionList">
+                <!-- Uploaded questions will be displayed here -->
+            </div>
         </div>
     </main>
     <footer>
-        <p>&copy; 2024 Test Portal. All rights reserved.</p>
+        <p>&copy; 2024 Test Platform</p>
     </footer>
-    <script src="upload.js"></script>
+    <script src="scripts/dashboard.js"></script>
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const password = document.getElementById('password').value;
+            const correctPassword = 'Vishu@982101'; // Set the password here
+            
+            if (password === correctPassword) {
+                document.getElementById('loginSection').style.display = 'none';
+                document.getElementById('dashboardSection').style.display = 'block';
+            } else {
+                document.getElementById('errorMessage').textContent = 'Incorrect password. Please try again.';
+            }
+        });
+
+        document.getElementById('uploadForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Code to handle form submission and display the uploaded question
+            const question = document.getElementById('question').value;
+            const option1 = document.getElementById('option1').value;
+            const option2 = document.getElementById('option2').value;
+            const option3 = document.getElementById('option3').value;
+            const option4 = document.getElementById('option4').value;
+            const answer = document.getElementById('answer').value;
+
+            const questionList = document.getElementById('questionList');
+            const newQuestion = document.createElement('div');
+            newQuestion.innerHTML = `
+                <h3>${question}</h3>
+                <ul>
+                    <li>1. ${option1}</li>
+                    <li>2. ${option2}</li>
+                    <li>3. ${option3}</li>
+                    <li>4. ${option4}</li>
+                </ul>
+                <p><strong>Correct Answer:</strong> ${answer}</p>
+                <hr>
+            `;
+            questionList.appendChild(newQuestion);
+
+            // Clear form fields after submission
+            document.getElementById('uploadForm').reset();
+        });
+    </script>
 </body>
 </html>
