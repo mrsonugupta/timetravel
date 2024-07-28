@@ -9,41 +9,42 @@
 <body>
     <header>
         <nav>
-            <h1>Test Portal</h1>
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="test.html">Take Test</a></li>
+                <li><a href="result.html">View Results</a></li>
                 <li><a href="upload.html">Upload Questions</a></li>
             </ul>
         </nav>
     </header>
     <main>
-        <div class="container">
-            <h2>Objective Test Exam</h2>
-            <form id="test-form">
-                <div class="form-group">
-                    <label for="student-name">Name:</label>
-                    <input type="text" id="student-name" name="studentName" required>
-                </div>
-                <div class="form-group">
-                    <label for="class">Class:</label>
-                    <input type="text" id="class" name="class" required>
-                </div>
-                <div class="form-group">
-                    <label for="subject">Subject:</label>
-                    <input type="text" id="subject" name="subject" required>
-                </div>
-                <div id="questions">
-                    <!-- Questions will be dynamically inserted here -->
-                </div>
-                <button type="submit" class="btn-submit">Submit</button>
+        <div id="testFormSection">
+            <h1>Take the Test</h1>
+            <form id="studentForm">
+                <label for="name">Name:</label>
+                <input type="text" id="name" required>
+                <label for="class">Class:</label>
+                <input type="text" id="class" required>
+                <label for="subject">Subject:</label>
+                <input type="text" id="subject" required>
+                <button type="submit">Start Test</button>
             </form>
-            <div id="result" class="hidden"></div>
+        </div>
+        <div id="testQuestionsSection" style="display: none;">
+            <h1>Test Questions</h1>
+            <form id="testForm">
+                <!-- Questions will be dynamically inserted here -->
+                <button type="submit">Submit Answers</button>
+            </form>
+            <div id="resultSection" style="display: none;">
+                <h2>Results</h2>
+                <p id="resultMessage"></p>
+            </div>
         </div>
     </main>
     <footer>
-        <p>&copy; 2024 Test Portal. All rights reserved.</p>
+        <p>&copy; 2024 Test Platform</p>
     </footer>
-    <script src="test.js"></script>
+    <script src="scripts/test.js"></script>
 </body>
 </html>
