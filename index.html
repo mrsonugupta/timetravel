@@ -3,34 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Dashboard</title>
-    <link rel="stylesheet" href="index.css">
+    <title>Test Platform</title>
+    <link rel="stylesheet" href="styles/main.css">
 </head>
 <body>
     <header>
         <nav>
-            <h1>Student Dashboard</h1>
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="test.html">Take Test</a></li>
+                <li><a href="result.html">View Results</a></li>
                 <li><a href="upload.html">Upload Questions</a></li>
             </ul>
         </nav>
     </header>
     <main>
-        <div class="container">
-            <h2>Welcome, <span id="student-name">Student</span></h2>
-            <div id="result-section">
-                <h3>Your Test Results</h3>
-                <div id="results">
-                    <!-- Test results will be dynamically inserted here -->
-                </div>
-            </div>
-        </div>
+        <h1>Welcome to the Test Platform</h1>
+        <p>Manage and take objective tests with ease.</p>
     </main>
     <footer>
-        <p>&copy; 2024 Student Dashboard. All rights reserved.</p>
+        <p>&copy; 2024 Test Platform</p>
     </footer>
-    <script src="index.js"></script>
+    <script>
+        function setToken() {
+            // Replace '158585' with your actual token
+            localStorage.setItem('accessToken', '158585');
+            alert('Token set. You can now access the dashboard.');
+        }
+    </script>
 </body>
 </html>
