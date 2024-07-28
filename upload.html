@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Questions</title>
+    <link rel="stylesheet" href="upload.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <h1>Upload Questions</h1>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="test.html">Take Test</a></li>
+                <li><a href="upload.html">Upload Questions</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="container">
+            <h2>Upload Questions</h2>
+            <form id="upload-form">
+                <div class="form-group">
+                    <label for="question">Question:</label>
+                    <textarea id="question" name="question" rows="4" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Options:</label>
+                    <input type="text" name="option1" placeholder="Option 1" required>
+                    <input type="text" name="option2" placeholder="Option 2" required>
+                    <input type="text" name="option3" placeholder="Option 3" required>
+                    <input type="text" name="option4" placeholder="Option 4" required>
+                </div>
+                <div class="form-group">
+                    <label for="answer">Correct Answer:</label>
+                    <select id="answer" name="answer" required>
+                        <option value="option1">Option 1</option>
+                        <option value="option2">Option 2</option>
+                        <option value="option3">Option 3</option>
+                        <option value="option4">Option 4</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn-submit">Upload</button>
+            </form>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 Test Portal. All rights reserved.</p>
+    </footer>
+    <script src="upload.js"></script>
+</body>
+</html>

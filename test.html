@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Take Test</title>
+    <link rel="stylesheet" href="test.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <h1>Test Portal</h1>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="test.html">Take Test</a></li>
+                <li><a href="upload.html">Upload Questions</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="container">
+            <h2>Objective Test Exam</h2>
+            <form id="test-form">
+                <div class="form-group">
+                    <label for="student-name">Name:</label>
+                    <input type="text" id="student-name" name="studentName" required>
+                </div>
+                <div class="form-group">
+                    <label for="class">Class:</label>
+                    <input type="text" id="class" name="class" required>
+                </div>
+                <div class="form-group">
+                    <label for="subject">Subject:</label>
+                    <input type="text" id="subject" name="subject" required>
+                </div>
+                <div id="questions">
+                    <!-- Questions will be dynamically inserted here -->
+                </div>
+                <button type="submit" class="btn-submit">Submit</button>
+            </form>
+            <div id="result" class="hidden"></div>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 Test Portal. All rights reserved.</p>
+    </footer>
+    <script src="test.js"></script>
+</body>
+</html>
